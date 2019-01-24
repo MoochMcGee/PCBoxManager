@@ -1,4 +1,4 @@
-﻿namespace _86boxManager
+﻿namespace _pcboxManager
 {
     partial class dlgAddVM
     {

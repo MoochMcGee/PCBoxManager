@@ -1,4 +1,4 @@
-﻿namespace _86boxManager
+﻿namespace _pcboxManager
 {
     partial class dlgAbout
     {
@@ -51,7 +51,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(154, 28);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "86Box Manager";
+            this.lblTitle.Text = "PCBox Manager";
             // 
             // btnOK
             // 
@@ -76,7 +76,7 @@
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.Size = new System.Drawing.Size(307, 19);
             this.lblDesc.TabIndex = 2;
-            this.lblDesc.Text = "A configuration manager for the 86Box emulator";
+            this.lblDesc.Text = "A configuration manager for the PCBox emulator";
             // 
             // lblVersion
             // 
@@ -97,7 +97,7 @@
             this.lnkGithub.Size = new System.Drawing.Size(264, 19);
             this.lnkGithub.TabIndex = 5;
             this.lnkGithub.TabStop = true;
-            this.lnkGithub.Text = "https://github.com/86Box/86BoxManager";
+            this.lnkGithub.Text = "https://github.com/PCBox/PCBoxManager";
             this.lnkGithub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGithub_LinkClicked);
             // 
             // lblCopyright
@@ -108,7 +108,7 @@
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(297, 76);
             this.lblCopyright.TabIndex = 6;
-            this.lblCopyright.Text = "Copyright © 2018-2019 David Simunič\r\nLicensed under the MIT license. \r\nSee the LI" +
+            this.lblCopyright.Text = "Copyright © 2018-2019 PCBox team\r\nLicensed under the MIT license. \r\nSee the LI" +
     "CENSE file for license information and\r\nAUTHORS for a list of contributors.";
             // 
             // lnkGithub2
@@ -120,7 +120,7 @@
             this.lnkGithub2.Size = new System.Drawing.Size(209, 19);
             this.lnkGithub2.TabIndex = 7;
             this.lnkGithub2.TabStop = true;
-            this.lnkGithub2.Text = "https://github.com/86Box/86Box";
+            this.lnkGithub2.Text = "https://github.com/PCBox/PCBox";
             this.lnkGithub2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkGuthub2_LinkClicked);
             // 
             // lblVersion1
@@ -135,7 +135,7 @@
             // 
             // imgLogo
             // 
-            this.imgLogo.Image = global::_86BoxManager.Properties.Resources._86Box;
+            this.imgLogo.Image = global::_PCBoxManager.Properties.Resources._PCBox;
             this.imgLogo.Location = new System.Drawing.Point(71, 9);
             this.imgLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imgLogo.Name = "imgLogo";
@@ -180,7 +180,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "About 86Box Manager";
+            this.Text = "About PCBox Manager";
             this.Load += new System.EventHandler(this.dlgAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
             this.pnlBottom.ResumeLayout(false);

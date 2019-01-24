@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{559F81B9-D1A5-45FC-AA69-E98F3B3926BB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>_86BoxManager</RootNamespace>
-    <AssemblyName>86Manager</AssemblyName>
+    <RootNamespace>_PCBoxManager</RootNamespace>
+    <AssemblyName>PCManager</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -47,7 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>_86boxManager.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -62,7 +63,11 @@
     </DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\86Box.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\PCBox.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -154,10 +159,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\86Box.ico" />
-    <Content Include="Resources\86box_16x16.png" />
-    <Content Include="Resources\86box_16x16_green.png" />
-    <Content Include="Resources\86box_16x16_yellow.png" />
+    <Content Include="Resources\PCBox.ico" />
+    <Content Include="Resources\pcbox_16x16.png" />
+    <Content Include="Resources\pcbox_16x16_green.png" />
+    <Content Include="Resources\pcbox_16x16_yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">

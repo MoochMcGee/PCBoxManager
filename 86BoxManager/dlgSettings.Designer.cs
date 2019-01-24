@@ -1,4 +1,4 @@
-﻿namespace _86boxManager
+﻿namespace _pcboxManager
 {
     partial class dlgSettings
     {
@@ -95,7 +95,7 @@
             this.lblEXEdir.Name = "lblEXEdir";
             this.lblEXEdir.Size = new System.Drawing.Size(82, 19);
             this.lblEXEdir.TabIndex = 3;
-            this.lblEXEdir.Text = "86Box path:";
+            this.lblEXEdir.Text = "PCBox path:";
             // 
             // lblCFGdir
             // 
@@ -159,7 +159,7 @@
             this.cbxMinimize.Name = "cbxMinimize";
             this.cbxMinimize.Size = new System.Drawing.Size(324, 24);
             this.cbxMinimize.TabIndex = 4;
-            this.cbxMinimize.Text = "Minimize 86Box Manager when a VM is started";
+            this.cbxMinimize.Text = "Minimize PCBox Manager when a VM is started";
             this.cbxMinimize.UseVisualStyleBackColor = true;
             this.cbxMinimize.CheckedChanged += new System.EventHandler(this.cbxMinimize_CheckedChanged);
             // 
@@ -198,7 +198,7 @@
             this.cbxMinimizeTray.Name = "cbxMinimizeTray";
             this.cbxMinimizeTray.Size = new System.Drawing.Size(264, 24);
             this.cbxMinimizeTray.TabIndex = 6;
-            this.cbxMinimizeTray.Text = "Minimize 86Box Manager to tray icon";
+            this.cbxMinimizeTray.Text = "Minimize PCBox Manager to tray icon";
             this.cbxMinimizeTray.UseVisualStyleBackColor = true;
             this.cbxMinimizeTray.CheckedChanged += new System.EventHandler(this.cbxMinimizeTray_CheckedChanged);
             // 
@@ -211,7 +211,7 @@
             this.cbxCloseTray.Name = "cbxCloseTray";
             this.cbxCloseTray.Size = new System.Drawing.Size(242, 24);
             this.cbxCloseTray.TabIndex = 7;
-            this.cbxCloseTray.Text = "Close 86Box Manager to tray icon";
+            this.cbxCloseTray.Text = "Close PCBox Manager to tray icon";
             this.cbxCloseTray.UseVisualStyleBackColor = true;
             this.cbxCloseTray.CheckedChanged += new System.EventHandler(this.cbxCloseTray_CheckedChanged);
             // 

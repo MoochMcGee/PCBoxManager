@@ -1,4 +1,4 @@
-﻿namespace _86boxManager
+﻿namespace _pcboxManager
 {
     partial class frmMain
     {
@@ -52,7 +52,7 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createADesktopShortcutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.img86box = new System.Windows.Forms.ImageList(this.components);
+            this.imgpcbox = new System.Windows.Forms.ImageList(this.components);
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnConfigure = new System.Windows.Forms.Button();
             this.imgStatus = new System.Windows.Forms.ImageList(this.components);
@@ -61,7 +61,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.cmsTrayIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.open86BoxManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openPCBoxManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,7 +122,7 @@
             this.btnSettings.Size = new System.Drawing.Size(65, 30);
             this.btnSettings.TabIndex = 8;
             this.btnSettings.Text = "Settings";
-            this.toolTip.SetToolTip(this.btnSettings, "Open 86Box Manager settings");
+            this.toolTip.SetToolTip(this.btnSettings, "Open PCBox Manager settings");
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
@@ -136,7 +136,7 @@
             this.btnAbout.Size = new System.Drawing.Size(50, 30);
             this.btnAbout.TabIndex = 9;
             this.btnAbout.Text = "About";
-            this.toolTip.SetToolTip(this.btnAbout, "Open the About 86Box Manager dialog");
+            this.toolTip.SetToolTip(this.btnAbout, "Open the About PCBox Manager dialog");
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
@@ -161,7 +161,7 @@
             this.lstVMs.ShowGroups = false;
             this.lstVMs.ShowItemToolTips = true;
             this.lstVMs.Size = new System.Drawing.Size(660, 397);
-            this.lstVMs.SmallImageList = this.img86box;
+            this.lstVMs.SmallImageList = this.imgpcbox;
             this.lstVMs.TabIndex = 10;
             this.lstVMs.UseCompatibleStateImageBehavior = false;
             this.lstVMs.View = System.Windows.Forms.View.Details;
@@ -296,13 +296,13 @@
             this.createADesktopShortcutToolStripMenuItem.ToolTipText = "Create a shortcut for this virtual machine on the desktop";
             this.createADesktopShortcutToolStripMenuItem.Click += new System.EventHandler(this.createADesktopShortcutToolStripMenuItem_Click);
             // 
-            // img86box
+            // imgpcbox
             // 
-            this.img86box.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("img86box.ImageStream")));
-            this.img86box.TransparentColor = System.Drawing.Color.Transparent;
-            this.img86box.Images.SetKeyName(0, "86box_16x16.png");
-            this.img86box.Images.SetKeyName(1, "86box_16x16_green.png");
-            this.img86box.Images.SetKeyName(2, "86box_16x16_yellow.png");
+            this.imgpcbox.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgpcbox.ImageStream")));
+            this.imgpcbox.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgpcbox.Images.SetKeyName(0, "pcbox_16x16.png");
+            this.imgpcbox.Images.SetKeyName(1, "pcbox_16x16_green.png");
+            this.imgpcbox.Images.SetKeyName(2, "pcbox_16x16_yellow.png");
             // 
             // btnAdd
             // 
@@ -383,13 +383,13 @@
             // 
             this.trayIcon.ContextMenuStrip = this.cmsTrayIcon;
             this.trayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("trayIcon.Icon")));
-            this.trayIcon.Text = "86Box Manager";
+            this.trayIcon.Text = "PCBox Manager";
             this.trayIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.trayIcon_MouseDoubleClick);
             // 
             // cmsTrayIcon
             // 
             this.cmsTrayIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.open86BoxManagerToolStripMenuItem,
+            this.openPCBoxManagerToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
@@ -397,20 +397,20 @@
             this.cmsTrayIcon.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsTrayIcon.Size = new System.Drawing.Size(188, 76);
             // 
-            // open86BoxManagerToolStripMenuItem
+            // openPCBoxManagerToolStripMenuItem
             // 
-            this.open86BoxManagerToolStripMenuItem.Name = "open86BoxManagerToolStripMenuItem";
-            this.open86BoxManagerToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.open86BoxManagerToolStripMenuItem.Text = "Show 86Box Manager";
-            this.open86BoxManagerToolStripMenuItem.ToolTipText = "Restore the 86Box Manager window";
-            this.open86BoxManagerToolStripMenuItem.Click += new System.EventHandler(this.open86BoxManagerToolStripMenuItem_Click);
+            this.openPCBoxManagerToolStripMenuItem.Name = "openPCBoxManagerToolStripMenuItem";
+            this.openPCBoxManagerToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.openPCBoxManagerToolStripMenuItem.Text = "Show PCBox Manager";
+            this.openPCBoxManagerToolStripMenuItem.ToolTipText = "Restore the PCBox Manager window";
+            this.openPCBoxManagerToolStripMenuItem.Click += new System.EventHandler(this.openPCBoxManagerToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.ToolTipText = "Open 86Box Manager settings";
+            this.settingsToolStripMenuItem.ToolTipText = "Open PCBox Manager settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -423,7 +423,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.ToolTipText = "Close 86Box Manager";
+            this.exitToolStripMenuItem.ToolTipText = "Close PCBox Manager";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // frmMain
@@ -449,7 +449,7 @@
             this.MinimumSize = new System.Drawing.Size(700, 500);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "86Box Manager";
+            this.Text = "PCBox Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
@@ -478,7 +478,7 @@
         private System.Windows.Forms.ToolStripMenuItem hardResetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ImageList img86box;
+        private System.Windows.Forms.ImageList imgpcbox;
         private System.Windows.Forms.ImageList imgStatus;
         public System.Windows.Forms.ListView lstVMs;
         private System.Windows.Forms.Button btnPause;
@@ -489,7 +489,7 @@
         private System.Windows.Forms.NotifyIcon trayIcon;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ContextMenuStrip cmsTrayIcon;
-        private System.Windows.Forms.ToolStripMenuItem open86BoxManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openPCBoxManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;

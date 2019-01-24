@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     [Serializable] //For serializing VMs so they can be stored in the registry
     public class VM
@@ -10,7 +10,7 @@ namespace _86boxManager
         public string Desc { get; set; } //Description
         public string Path { get; set; } //Path to config, nvr, etc.
         public int Status { get; set; } //Status
-        public int Pid { get; set; } //Process ID of 86box.exe running the VM
+        public int Pid { get; set; } //Process ID of pcbox.exe running the VM
         public const int STATUS_STOPPED = 0; //VM is not running
         public const int STATUS_RUNNING = 1; //VM is running
         public const int STATUS_IN_SETTINGS = 2; //Only the settings window is open

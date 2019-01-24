@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     public partial class dlgAddVM : Form
     {

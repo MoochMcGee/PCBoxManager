@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     static class Program
     {
@@ -47,7 +47,7 @@ namespace _86boxManager
         [STAThread]
         static void Main()
         {
-            const string name = "86Box Manager";
+            const string name = "PCBox Manager";
             bool firstInstance;
 
             //Use a mutex to check if this is the first instance of Manager
@@ -57,7 +57,7 @@ namespace _86boxManager
             if (!firstInstance)
             {
                 //Finds the existing window, unhides it, restores it and sets focus to it
-                IntPtr hWnd = FindWindow(null, "86Box Manager");
+                IntPtr hWnd = FindWindow(null, "PCBox Manager");
                 ShowWindow(hWnd, ShowWindowEnum.Show);
                 ShowWindow(hWnd, ShowWindowEnum.Restore);
                 SetForegroundWindow(hWnd);
@@ -79,11 +79,11 @@ namespace _86boxManager
             }
             else
             {
-                //Then check if any instances of 86Box are already running and warn the user
-                Process[] pname = Process.GetProcessesByName("86box");
+                //Then check if any instances of PCBox are already running and warn the user
+                Process[] pname = Process.GetProcessesByName("pcbox");
                 if (pname.Length > 0)
                 {
-                    DialogResult result = MessageBox.Show("At least one instance of 86box is already running. It's not recommended that you run 86Box.exe directly outside of Manager. Do you want to continue at your own risk?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult result = MessageBox.Show("At least one instance of pcbox is already running. It's not recommended that you run PCBox.exe directly outside of Manager. Do you want to continue at your own risk?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.No)
                     {
                         return;

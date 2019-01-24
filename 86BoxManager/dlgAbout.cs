@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     public partial class dlgAbout : Form
     {
@@ -19,13 +19,13 @@ namespace _86boxManager
         private void lnkGithub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             lnkGithub.LinkVisited = true;
-            System.Diagnostics.Process.Start("https://github.com/86Box/86BoxManager");
+            System.Diagnostics.Process.Start("https://github.com/PCBox/PCBoxManager");
         }
 
         private void lnkGuthub2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             lnkGithub2.LinkVisited = true;
-            System.Diagnostics.Process.Start("https://github.com/86Box/86Box");
+            System.Diagnostics.Process.Start("https://github.com/PCBox/PCBox");
         }
 
         private void dlgAbout_Load(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     public partial class dlgSettings : Form
     {
@@ -71,11 +71,11 @@ namespace _86boxManager
         {
             try
             {
-                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box", true); //Try to open the key first (in read-write mode) to see if it already exists
+                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox", true); //Try to open the key first (in read-write mode) to see if it already exists
                 if (regkey == null) //Regkey doesn't exist yet, must be created first and then reopened
                 {
-                    Registry.CurrentUser.CreateSubKey(@"SOFTWARE\86Box");
-                    regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box", true);
+                    Registry.CurrentUser.CreateSubKey(@"SOFTWARE\PCBox");
+                    regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox", true);
                 }
 
                 //Store the new values, close the key, changes are saved
@@ -99,12 +99,12 @@ namespace _86boxManager
         {
             try
             {
-                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box"); //Open the key as read only
+                RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox"); //Open the key as read only
                 if (regkey == null)
                 { //Key doesn't exist yet, fallback to defaults
-                    Registry.CurrentUser.CreateSubKey(@"SOFTWARE\86Box");
-                    txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\86Box VMs";
-                    txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\86Box";
+                    Registry.CurrentUser.CreateSubKey(@"SOFTWARE\PCBox");
+                    txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\PCBox VMs";
+                    txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\PCBox";
                     cbxMinimize.Checked = false;
                     cbxShowConsole.Checked = true;
                     cbxMinimizeTray.Checked = false;
@@ -127,15 +127,15 @@ namespace _86boxManager
             }
             catch (Exception ex)
             {
-                txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\86Box Virtual Machines";
-                txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\86Box";
+                txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\PCBox Virtual Machines";
+                txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\PCBox";
             }
         }
 
         private void btnBrowse1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Select a folder where 86Box program files and the roms folder are located.";
+            fbd.Description = "Select a folder where PCBox program files and the roms folder are located.";
             fbd.ShowNewFolderButton = true;
             fbd.RootFolder = Environment.SpecialFolder.MyComputer;
             DialogResult result = fbd.ShowDialog();
@@ -187,12 +187,12 @@ namespace _86boxManager
             try
             {
                 RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE", true); //Open the key as read only
-                Registry.CurrentUser.DeleteSubKeyTree(@"86Box");
+                Registry.CurrentUser.DeleteSubKeyTree(@"PCBox");
             }
             catch (Exception ex) {/*Do nothing, key doesn't exist anyway*/}
 
-            txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\86Box VMs";
-            txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\86Box";
+            txtCFGdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\PCBox VMs";
+            txtEXEdir.Text = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + @"\PCBox";
             cbxMinimize.Checked = false;
             cbxShowConsole.Checked = true;
             cbxMinimizeTray.Checked = false;

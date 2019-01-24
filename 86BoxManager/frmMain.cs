@@ -10,7 +10,7 @@ using IWshRuntimeLibrary;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace _86boxManager
+namespace _pcboxManager
 {
     public partial class frmMain : Form
     {
@@ -30,15 +30,15 @@ namespace _86boxManager
             public string Data;
         }
 
-        private static RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box", true); //Registry key for accessing the settings and VM list
-        public string exepath = ""; //Path to 86box.exe and the romset
+        private static RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox", true); //Registry key for accessing the settings and VM list
+        public string exepath = ""; //Path to pcbox.exe and the romset
         public string cfgpath = ""; //Path to the virtual machines folder (configs, nvrs, etc.)
         private bool minimize = false; //Minimize the main window when a VM is started?
         private bool showConsole = true; //Show the console window when a VM is started?
         private bool minimizeTray = false; //Minimize the Manager window to tray icon?
         private bool closeTray = false; //Close the Manager Window to tray icon?
         private string hWndHex = "";  //Window handle of this window  
-        private const string ZEROID = "0000000000000000"; //Used for the id parameter of 86Box -H
+        private const string ZEROID = "0000000000000000"; //Used for the id parameter of PCBox -H
         private int sortColumn = -1; //For column sorting's asc/desc capability
 
         public frmMain()
@@ -50,7 +50,7 @@ namespace _86boxManager
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //Convert the current window handle to a form that's expected by 86Box
+            //Convert the current window handle to a form that's expected by PCBox
             hWndHex = string.Format("{0:X}", Handle.ToInt64());
             hWndHex = hWndHex.PadLeft(16, '0');
 
@@ -190,7 +190,7 @@ namespace _86boxManager
         {
             try
             {
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box");
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox");
                 exepath = regkey.GetValue("EXEdir").ToString();
                 cfgpath = regkey.GetValue("CFGdir").ToString();
 
@@ -212,7 +212,7 @@ namespace _86boxManager
             }
             catch (Exception ex) //Bad settings, retry
             {
-                MessageBox.Show("86Box Manager settings are missing or corrupted. This is normal if you're running 86Box Manager for the first time. Please (re)configure the settings now.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("PCBox Manager settings are missing or corrupted. This is normal if you're running PCBox Manager for the first time. Please (re)configure the settings now.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dlgSettings dlg = new dlgSettings();
                 dlg.ShowDialog();
                 LoadSettings();
@@ -224,7 +224,7 @@ namespace _86boxManager
         {
             try
             {
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines");
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines");
                 VM vm = new VM();
 
                 foreach (var value in regkey.GetValueNames())
@@ -378,7 +378,7 @@ namespace _86boxManager
             }
         }
 
-        //Closing 86Box Manager before closing all the VMs can lead to weirdness if 86Box Manager is then restarted. So let's warn the user just in case and request confirmation.
+        //Closing PCBox Manager before closing all the VMs can lead to weirdness if PCBox Manager is then restarted. So let's warn the user just in case and request confirmation.
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             List<ListViewItem> vms = new List<ListViewItem>();
@@ -405,7 +405,7 @@ namespace _86boxManager
             if (vms.Count > 0)
             {
                 e.Cancel = true;
-                DialogResult = MessageBox.Show("It appears some virtual machines are still running. It's recommended you stop them first before closing 86Box Manager. Do you want to stop them now?", "Virtual machines are still running", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                DialogResult = MessageBox.Show("It appears some virtual machines are still running. It's recommended you stop them first before closing PCBox Manager. Do you want to stop them now?", "Virtual machines are still running", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (DialogResult == DialogResult.Yes)
                 {
                     foreach (ListViewItem lvi in vms)
@@ -476,7 +476,7 @@ namespace _86boxManager
                 if (vm.Status == VM.STATUS_STOPPED)
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = exepath + "86Box.exe";
+                    p.StartInfo.FileName = exepath + "PCBox.exe";
                     p.StartInfo.Arguments = "-P \"" + lstVMs.SelectedItems[0].SubItems[2].Text + "\" -H " + ZEROID + "," + hWndHex;
                     if (!showConsole)
                     {
@@ -602,7 +602,7 @@ namespace _86boxManager
                 try
                 {
                     Process p = new Process();
-                    p.StartInfo.FileName = exepath + "86Box.exe";
+                    p.StartInfo.FileName = exepath + "PCBox.exe";
                     p.StartInfo.Arguments = "-S -P \"" + lstVMs.SelectedItems[0].SubItems[2].Text + "\"";
                     if (!showConsole)
                     {
@@ -728,7 +728,7 @@ namespace _86boxManager
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(ms, newVM);
                 var data = ms.ToArray();
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines", true);
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines", true);
                 regkey.SetValue(newVM.Name, data, RegistryValueKind.Binary);
             }
 
@@ -751,10 +751,10 @@ namespace _86boxManager
         //Checks if a VM with this name already exists
         public bool VMCheckIfExists(string name)
         {
-            regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines", true);
+            regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines", true);
             if (regkey == null) //Regkey doesn't exist yet
             {
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box", true);
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox", true);
                 regkey.CreateSubKey(@"Virtual Machines");
                 return false;
             }
@@ -796,14 +796,14 @@ namespace _86boxManager
             lstVMs.SelectedItems[0].ToolTipText = desc;
 
             //Create a new registry value with new info, delete the old one
-            regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines", true);
+            regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines", true);
             using (var ms = new MemoryStream())
             {
                 regkey.DeleteValue(oldname);
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(ms, vm);
                 var data = ms.ToArray();
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines", true);
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines", true);
                 regkey.SetValue(vm.Name, data, RegistryValueKind.Binary);
             }
             regkey.Close();
@@ -825,7 +825,7 @@ namespace _86boxManager
             if (result1 == DialogResult.Yes)
             {
                 lstVMs.Items.Remove(lstVMs.SelectedItems[0]);
-                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\86Box\Virtual Machines", true);
+                regkey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\PCBox\Virtual Machines", true);
                 regkey.DeleteValue(vm.Name);
                 regkey.Close();
 
@@ -885,7 +885,7 @@ namespace _86boxManager
         {
             // WM_SENDSTATUS (0x8895) - wparam = 1: vm paused, wparam = 0: vm resumed
             // WM_SENDSSTATUS (0x8896) - wparam = 1: settings open, wparam = 0: settings closed
-            // NOTE: This code works only with 86Box build 1799 or later!!!
+            // NOTE: This code works only with PCBox build 1799 or later!!!
             if (m.Msg == 0x8895)
             {
                 if (m.WParam.ToInt32() == 1) //VM was paused
@@ -1073,7 +1073,7 @@ namespace _86boxManager
             //If there are running VMs, display the warning and stop the VMs if user says so
             if (vms.Count > 0)
             {
-                DialogResult = MessageBox.Show("It appears some virtual machines are still running. It's recommended you stop them first before closing 86Box Manager. Do you want to stop them now?", "Virtual machines are still running", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                DialogResult = MessageBox.Show("It appears some virtual machines are still running. It's recommended you stop them first before closing PCBox Manager. Do you want to stop them now?", "Virtual machines are still running", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                 if (DialogResult == DialogResult.Yes)
                 {
                     foreach (ListViewItem lvi in vms)
@@ -1106,7 +1106,7 @@ namespace _86boxManager
             }
         }
 
-        private void open86BoxManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openPCBoxManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Show();
             WindowState = FormWindowState.Normal;
@@ -1128,7 +1128,7 @@ namespace _86boxManager
         private void killToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Ask the user to confirm and kill the VM's process
-            DialogResult = MessageBox.Show("Killing a virtual machine can cause data loss. Only do this if 86Box.exe process gets stuck. Do you wish to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult = MessageBox.Show("Killing a virtual machine can cause data loss. Only do this if PCBox.exe process gets stuck. Do you wish to continue?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(DialogResult == DialogResult.Yes)
             {
                 VM vm = (VM)lstVMs.SelectedItems[0].Tag;
@@ -1187,7 +1187,7 @@ namespace _86boxManager
             }
 
             lstVMs.Sort();
-            lstVMs.ListViewItemSorter = new _86BoxManager.ListViewItemComparer(e.Column, lstVMs.Sorting);
+            lstVMs.ListViewItemSorter = new _PCBoxManager.ListViewItemComparer(e.Column, lstVMs.Sorting);
         }
 
         private void lstVMs_MouseClick(object sender, MouseEventArgs e)

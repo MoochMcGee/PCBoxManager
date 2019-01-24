@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("86Box Manager")]
-[assembly: AssemblyDescription("A configuration manager for 86Box")]
+[assembly: AssemblyTitle("PCBox Manager")]
+[assembly: AssemblyDescription("A configuration manager for PCBox")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("David Simunič")]
-[assembly: AssemblyProduct("86Box Manager")]
-[assembly: AssemblyCopyright("Copyright © 2018 David Simunič")]
+[assembly: AssemblyCompany("PCBox team")]
+[assembly: AssemblyProduct("PCBox Manager")]
+[assembly: AssemblyCopyright("Copyright © 2019 PCBox team")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
